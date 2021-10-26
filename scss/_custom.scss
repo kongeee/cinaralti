@@ -1,0 +1,1049 @@
+// General styling
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: $black;
+    font-style: italic;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $black;
+    font-style: italic;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $black;
+    font-style: italic;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    /* Firefox 18- */
+    color: $black;
+    font-style: italic;
+}
+
+.container {
+    height: 100%;
+    @include xy-grid-container();
+}
+
+.main-content {
+    background-color: $white;
+    padding: rem-calc(5);
+    @include breakpoint(medium) {
+        margin-top: rem-calc(-120);
+        position: relative;
+        padding: rem-calc(50 80);
+    }
+}
+
+// Header & slider styling
+.site-header {
+    .header-content {
+        position: relative;
+        height: 100%;
+        @include xy-grid();
+        .top-menu {
+            position: absolute;
+            top: rem-calc(30);
+            right: 0;
+            @include xy-cell();
+        }
+    }
+}
+
+.slick-slider {
+    z-index: -1;
+}
+
+.slider {
+    height: 100vh;
+    margin: 0;
+    @include breakpoint(medium) {
+        height: 85vh;
+    }
+    .slick-track {
+        height: 100vh;
+        @include breakpoint(medium) {
+            height: 85vh;
+        }
+        .slide1,
+        .slide2 {
+            .container {
+                height: 100%;
+                @include xy-grid();
+                justify-content: center;
+                @include breakpoint(medium down) {
+                    background: rgba(255, 255, 255, .5);
+                }
+                @include breakpoint(large) {
+                    @include breakpoint(portrait) {
+                        background: rgba(255, 255, 255, .5);
+                    }
+                }
+                .bottom-section {
+                    @include xy-cell();
+                    align-self: center;
+                 
+                    @include breakpoint(large) {
+                        @include xy-cell(3 of 7);
+                        @include xy-cell-offset (4 of 7);
+                    }
+                    @include breakpoint(large) {
+                        @include breakpoint(portrait) {
+                            @include xy-cell(auto);
+                            @include xy-cell-offset(0);
+                        }
+                    }
+                       @include breakpoint(small only) {
+                        @include breakpoint(landscape) {
+                            margin-top: rem-calc(100);
+                            width: 60%;
+                        }
+                    }
+                    @include breakpoint(medium only) {
+                        @include breakpoint(portrait) {
+                            margin-top: rem-calc(100);
+                            width: 60%;
+                        }
+                    }
+                    @include breakpoint(medium only) {
+                        @include breakpoint(landscape) {
+                            margin-top: rem-calc(100);
+                        }
+                    }
+                    .divider {
+                        margin-top: rem-calc(15);
+                    }
+                }
+            }
+        }
+        .slide1 {
+            background: url(../assets/img/hero01.png) no-repeat;
+            background-size: cover;
+            background-position: 20% 0%;
+        }
+        .slide2 {
+            background: url(../assets/img/hero02.png) no-repeat;
+            background-size: cover;
+            background-position: 0% 0%;
+        }
+    }
+}
+
+.header-txt {
+    display: block;
+    text-align: center;
+    font-weight: 300;
+    @include breakpoint(medium) {
+        font-size: rem-calc(30);
+    }
+}
+
+.divider {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: rem-calc(40);
+    width: 250px;
+    @include breakpoint(small only) {
+        width: 200px;
+    }
+}
+
+// Main navigation styling
+.menu {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    .menu-icon {
+        outline: none;
+        margin-right: rem-calc(15);
+    }
+    @include flex-align(center, middle);
+    @include breakpoint(medium) {
+        @include xy-cell(auto);
+    }
+    @include breakpoint(large) {
+        @include flex-align(right, middle);
+        background-color: transparent;
+    }
+    @include breakpoint(large) {
+        @include breakpoint(portrait) {
+            @include flex-align(center, middle);
+            @include xy-cell(auto);
+        }
+    }
+    .title-bar {
+        background-color: rgba(255, 255, 255, .6);
+        color: #000;
+    }
+    // Main Navigation for Interior pages
+    .main-navigation {
+        white-space: nowrap;
+        @include menu-base();
+        @include flex-align(right, middle);
+        @include breakpoint(small only) {
+            padding-top: rem-calc(6);
+            background-color: rgba(255, 255, 255, .9);
+        }
+        li {
+            padding: 0 rem-calc(5);
+            position: relative;
+            @include breakpoint(small only) {
+                width: 100%;
+                text-align: center;
+            }
+            a {
+                font-size: rem-calc(16);
+                color: #000;
+                text-decoration: none;
+                position: relative;
+                padding: rem-calc(15) rem-calc(20);
+                border-top: 1px solid rgba(0, 0, 0, 0);
+                border-bottom: 1px solid rgba(0, 0, 0, 0);
+                transition: padding .2s, border-color .2s;
+            }
+            a.m-active {
+                border: 1px solid rgba(0, 0, 0, 1);
+                padding: rem-calc(10) rem-calc(20);
+                transition: 0;
+            }
+            a.m-anim:hover {
+                padding: rem-calc(10) rem-calc(20);
+                border-color: rgba(0, 0, 0, 1);
+                outline: none;
+            }
+            a.m-anim::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                max-height: 0;
+                color: rgba(0, 0, 0, 0);
+                border-left: 1px solid rgba(0, 0, 0, 0);
+                content: attr(data-text);
+                transition: max-height .2s, border-color 0s;
+            }
+            a.m-anim::after {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                padding: rem-calc(10);
+                max-height: 0;
+                color: rgba(0, 0, 0, 0);
+                border-right: 1px solid rgba(0, 0, 0, 0);
+                content: attr(data-text);
+                transition: max-height .2s, border-color 0s;
+            }
+            a.m-anim:hover::before,
+            a.m-anim:hover::after {
+                max-height: 100%;
+                transition-delay: .1s;
+                border-color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+}
+
+// Animation Menus
+.menu-in {
+    @include mui-zoom(in, .1, 1);
+}
+
+.menu-out {
+    @include mui-zoom(out, 1, .1, true, .2s, ease)
+}
+
+.reveal-in {
+    @include mui-fade();
+}
+
+.reveal-out {
+    @include mui-fade(out, 1, 0);
+}
+
+// Yellow bar
+.category-icons {
+    background-image: url('../assets/yellow-bg.png');
+    -webkit-box-shadow: inset 0px 9px 19px -9px rgba(176, 145, 9, 0.62);
+    -moz-box-shadow: inset 0px 9px 19px -9px rgba(176, 145, 9, 0.62);
+    box-shadow: inset 0px 9px 19px -9px rgba(176, 145, 9, 0.62);
+    .yellow-content {
+        padding: rem-calc(50) 0;
+        @include xy-grid();
+        .icon {
+            padding: rem-calc(10);
+            @include xy-cell();
+            @include breakpoint(small only) {
+                margin-bottom: rem-calc(30);
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            @include breakpoint(medium) {
+                @include xy-cell(1 of 3);
+            }
+            @include breakpoint(large) {
+                padding: rem-calc(25);
+            }
+            img {
+                height: rem-calc(50);
+                width: 100%;
+                margin-bottom: rem-calc(20);
+            }
+            h3 {
+                text-align: center;
+                //font-size: rem-calc(18);
+                text-transform: uppercase;
+                margin-bottom: rem-calc(20);
+                font-weight: 600;
+            }
+            p {
+                text-align: center;
+                font-size: rem-calc(14);
+            }
+        }
+    }
+}
+
+// This month specials section
+.month-specials {
+    padding: rem-calc(50) 0;
+    .specials-content {
+        @include xy-grid();
+        @include breakpoint(medium) {
+            padding-bottom: rem-calc(50);
+        }
+        .special {
+            background: #f8f8f8;
+            display: flex;
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+            @include breakpoint(medium) {
+                width: 50%;
+            }
+            @include breakpoint(large) {
+                width: 33.33333%;
+            }
+            &:hover {
+                background: #f6c710;
+                opacity: 1;
+            }
+            &:hover>.special-img img {
+                background: #f6c710;
+                opacity: .7;
+            }
+            .special-img {
+                width: 50%;
+                img {
+                    width: 100%;
+                    height: auto;
+                    -webkit-transition: .3s ease-in-out;
+                    transition: .3s ease-in-out;
+                }
+            }
+            .special-items {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: rem-calc(10);
+                padding-right: rem-calc(10);
+                text-align: center;
+                -webkit-transition: .3s ease-in-out;
+                transition: .3s ease-in-out;
+                h2 {
+                    font-size: rem-calc(16);
+                    position: relative;
+                    margin-bottom: rem-calc(15);
+                    font-weight: 600;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        bottom: rem-calc(-8);
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 100%;
+                        max-width: 45%;
+                        height: 1px;
+                        background-color: $black;
+                    }
+                }
+                p {
+                    font-size: rem-calc(12);
+                    margin-bottom: rem-calc(5);
+                    @include breakpoint(medium) {
+                        font-size: rem-calc(14);
+                    }
+                }
+                span {
+                    font-weight: 600;
+                }
+            }
+            @include breakpoint(small only) {
+                .img-02 {
+                    order: 2;
+                }
+                .spec-02 {
+                    order: 1;
+                }
+                .img-05 {
+                    order: 1;
+                }
+                .spec-05 {
+                    order: 2;
+                }
+            }
+            @include breakpoint(medium only) {
+                .img-03 {
+                    order: 2;
+                }
+                .spec-03 {
+                    order: 1;
+                }
+                .img-05,
+                .img-06 {
+                    order: 1;
+                }
+                .spec-05,
+                .spec-06 {
+                    order: 2;
+                }
+            }
+        }
+    }
+}
+
+// About us section
+.about {
+    padding: rem-calc(50) 0;
+    background: #eeefef url('../assets/img/beans.png') no-repeat;
+    background-size: 90%;
+    background-position: left rem-calc(-100) bottom rem-calc(-150);
+    height: 100%;
+    @include breakpoint(medium) {
+        padding-bottom: rem-calc(100);
+        height: 80%;
+        background-position: 50% -350%;
+    }
+    @include breakpoint(large) {
+        padding: rem-calc(100) 0;
+        background-position: 100% 20%;
+        background-size: 45%;
+    }
+    @include breakpoint(small only) {
+        @include breakpoint(landscape) {
+            height: rem-calc(450);
+            background-size: 60%;
+            background-position: left -50px bottom -150px;
+        }
+    }
+    @include breakpoint(medium only) {
+        @include breakpoint(portrait) {
+            height: rem-calc(500);
+            background-size: 70%;
+            background-position: -30% 240%;
+            background-position: left -150px bottom -250px;
+        }
+    }
+    @include breakpoint(medium only) {
+        @include breakpoint(landscape) {
+            height: rem-calc(500);
+            background-size: 70%;
+            background-position: -30% 240%;
+            background-position: left -150px bottom -250px;
+        }
+    }
+    @include breakpoint(large only) {
+        @include breakpoint(portrait) {
+            background-size: 70%;
+            background-position: right -150px bottom 40%;
+        }
+    }
+    @include breakpoint(large only) {
+        @include breakpoint(landscape) {
+            background-size: 70%;
+            background-position: right -150px bottom 40%;
+        }
+    }
+    @include breakpoint(xlarge only) {
+        @include breakpoint(landscape) {
+            background-size: 60%;
+            background-position: right -150px bottom 40%;
+        }
+    }
+    .container {
+        @include xy-grid();
+        .about-content {
+            @include xy-cell();
+            @include breakpoint(large) {
+                @include xy-cell(3 of 7);
+                align-self: center;
+            }
+            @include breakpoint(large) {
+                @include padding(0,
+                1,
+                0,
+                1);
+            }
+            p {
+                text-align: center;
+                @include breakpoint(medium only) {
+                    padding: 0 rem-calc(50);
+                }
+                @include breakpoint(medium) {
+                    margin-bottom: rem-calc(40);
+                    font-size: rem-calc(24);
+                    line-height: 1.8;
+                }
+            }
+            img.signature {
+                display: block;
+                float: right;
+                @include breakpoint(small only) {
+                    width: 40%;
+                }
+                @include breakpoint(small only) {
+                    @include breakpoint(landscape) {
+                        margin-top: rem-calc(40);
+                        width: 30%;
+                    }
+                }
+                @include breakpoint(medium only) {
+                    width: rem-calc(150);
+                }
+            }
+        }
+    }
+}
+
+// Menu cart section
+.menu-cart {
+    padding: rem-calc(50) 0;
+    .tabs-content {
+        @include breakpoint(medium down) {
+            height: 100%!important;
+            .tabs-panel {
+                height: 100%!important;
+            }
+        }
+        @include breakpoint(large only) {
+            @include breakpoint(landscape) {
+                height: 100%!important;
+                .tabs-panel {
+                    height: 100%!important;
+                }
+            }
+        }
+    }
+    .tabs-content>.tabs-panel.is-active {
+        animation-duration: 1.25s;
+        animation-name: fadeOut;
+    }
+    .tabs-content>.tabs-panel.is-active {
+        animation-duration: 1.25s;
+        animation-name: fadeIn;
+    }
+    @include breakpoint(medium) {
+        .tabs-content>.tabs-panel.is-active {
+            animation-name: slideIn, fadeIn;
+            animation-duration: 1.25s;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes slideIn {
+        0% {
+            -webkit-transform: translateY(-10%);
+        }
+        100% {
+            -webkit-transform: translateY(0%);
+        }
+    }
+    // Navigation for restaurant menu cart
+    .menu-navigation {
+        white-space: nowrap;
+        @include menu-base();
+        @include flex-align(center,
+        middle);
+        margin-bottom: rem-calc(20);
+        .tabs-title>a[aria-selected='true'],
+        .tabs-title>a[aria-selected='true']:active {
+            border: 1px solid rgba(0, 0, 0, 1);
+            padding: rem-calc(10) rem-calc(20);
+            background: #fff;
+            box-sizing: border-box;
+        }
+        .tabs-title>a[aria-selected='true'].m-anim:hover::before,
+        .tabs-title>a[aria-selected='true'].m-anim:hover::after,
+        .tabs-title>a[aria-selected='true'].m-anim::before,
+        .tabs-title>a[aria-selected='true'].m-anim::after {
+            border: none;
+        }
+        li {
+            padding: 0 rem-calc(5);
+            position: relative;
+            a {
+                outline: none;
+                font-size: rem-calc(16);
+                color: #000;
+                text-decoration: none;
+                position: relative;
+                padding: rem-calc(15) rem-calc(20);
+                border-top: 1px solid rgba(0, 0, 0, 0);
+                border-bottom: 1px solid rgba(0, 0, 0, 0);
+                transition: padding .2s, border-color .2s;
+            }
+            a.m-anim:hover {
+                padding: rem-calc(10) rem-calc(20);
+                border-color: rgba(0, 0, 0, 1);
+                outline: none;
+            }
+            a.m-anim::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                max-height: 0;
+                color: rgba(0, 0, 0, 0);
+                border-left: 1px solid rgba(0, 0, 0, 0);
+                content: attr(data-text);
+                transition: max-height .2s, border-color 0s;
+            }
+            a.m-anim::after {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                padding: rem-calc(10);
+                max-height: 0;
+                color: rgba(0, 0, 0, 0);
+                border-right: 1px solid rgba(0, 0, 0, 0);
+                content: attr(data-text);
+                transition: max-height .2s, border-color 0s;
+            }
+            a.m-anim:hover::before,
+            a.m-anim:hover::after {
+                max-height: 100%;
+                transition-delay: .1s;
+                border-color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+    .tabs-content {
+        border: none;
+        .tabs-panel {
+            padding: 0;
+        }
+    }
+    .menu-content {
+        @include xy-grid();
+        .menu-section {
+            @include xy-cell();
+            @include breakpoint(large) {
+                @include xy-cell(1 of 2);
+            }
+            table {
+                width: 90%;
+                margin: 0 auto;
+                table-layout: fixed;
+                border-collapse: collapse;
+                tbody {
+                    border: none;
+                    tr:nth-child(even) {
+                        background: none;
+                        & td {
+                            background-image: none;
+                            text-align: left;
+                            font-style: italic;
+                            font-size: rem-calc(14);
+                            padding-top: 0;
+                        }
+                    }
+                    td {
+                        padding: 1em 0 0 0;
+                        vertical-align: bottom;
+                        background-image: radial-gradient($black 1px, white 0px);
+                        background-size: 8px 8px;
+                        background-repeat: repeat-x;
+                        background-position: 0% 90%;
+                        span {
+                            background-color: #fff;
+                            text-transform: uppercase;
+                        }
+                        &:first-child {
+                            text-align: left;
+                            & span {
+                                padding-right: .5em;
+                            }
+                        }
+                        &:last-child {
+                            text-align: right;
+                            width: 3em;
+                            & span {
+                                padding-left: .5em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Contact us section
+footer {
+    padding: rem-calc(50) 0 0 0;
+    background: url('../assets/img/contact-bg.png') no-repeat;
+    background-position: 60% 0%;
+    background-size: cover;
+    @include breakpoint(medium) {
+        background-position: right center;
+    }
+    .footer-content {
+        text-align: center;
+        @include breakpoint(large) {
+            @include xy-cell(1 of 2);
+            @include xy-cell-offset (1 of 2);
+        }
+        @include breakpoint(large) {
+            @include breakpoint(portrait) {
+                @include xy-cell(3 of 6);
+                @include xy-cell-offset(2 of 6);
+            }
+        }
+        @include breakpoint(large only) {
+            @include breakpoint(landscape) {
+                @include xy-cell(3 of 6);
+                @include xy-cell-offset(2 of 6);
+            }
+        }
+        h3 {
+            text-transform: uppercase;
+        }
+        .contact-info {
+            @include xy-grid;
+            .info-address,
+            .reservations {
+                text-align: center;
+                margin: 0 auto;
+                @include breakpoint(medium) {
+                    text-align: left;
+                }
+                @include breakpoint(large) {
+                    @include xy-cell(1 of 2);
+                }
+                h3{
+                    font-weight: 600;
+                }
+            }
+            .reservations {
+                text-align: center;
+                @include breakpoint(medium) {
+                    text-align: right;
+                }
+            }
+        }
+        .contact-form {
+            @include xy-grid;
+            margin-top: rem-calc(50);
+            text-align: left;
+            @include breakpoint(medium down) {
+                @include xy-cell(10);
+                @include xy-cell-offset (1);
+            }
+            h3 {
+                @include xy-cell;
+                font-weight: 600;
+            }
+            form {
+                margin-top: rem-calc(20);
+                @include xy-grid;
+                input {
+                    margin-bottom: rem-calc(50);
+                    background-color: transparent;
+                    box-shadow: none;
+                    border: none;
+                    border-bottom: 1px solid $black;
+                    @include breakpoint(medium) {
+                        @include xy-cell(1 of 2);
+                    }
+                }
+                textarea {
+                    background-color: transparent;
+                    box-shadow: none;
+                    border: none;
+                    border-bottom: 1px solid $black;
+                    height: rem-calc(50) !important;
+                    max-height: rem-calc(50) !important;
+                    overflow: hidden !important;
+                    resize: none;
+                    @include breakpoint(medium) {
+                        @include xy-cell();
+                    }
+                }
+                button.send-form {
+                    position: relative;
+                    margin: rem-calc(50) auto;
+                    border: 1px solid $black;
+                    padding: rem-calc(15) rem-calc(30);
+                    transition: 0.19s ease-in;
+                    -o-transition: 0.19s ease-in;
+                    -ms-transition: 0.19s ease-in;
+                    -moz-transition: 0.19s ease-in;
+                    -webkit-transition: 0.19s ease-in;
+                    outline: 0;
+                    overflow: hidden;
+                    background: none;
+                    z-index: 1;
+                    cursor: pointer;
+                    &:hover {
+                        color: #fff;
+                        font-weight: bold;
+                    }
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        background: $black;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 100%;
+                        z-index: -1;
+                        -webkit-transition: bottom 0.2s ease-in;
+                    }
+                    &:hover:before {
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+        .social-icons {
+            @include xy-grid;
+            justify-content: center;
+            margin-bottom: rem-calc(40);
+            @include breakpoint(large) {
+                justify-content: flex-end;
+            }
+            @include breakpoint(large) {
+                @include breakpoint(portrait) {
+                    justify-content: center;
+                }
+            }
+            .fb-i,
+            .insta-i {
+                position: relative;
+                width: rem-calc(50);
+                height: rem-calc(50);
+                margin: rem-calc(10);
+                padding: rem-calc(10);
+                border: 1px solid $black;
+                transition: 0.19s ease-in;
+                -o-transition: 0.19s ease-in;
+                -ms-transition: 0.19s ease-in;
+                -moz-transition: 0.19s ease-in;
+                -webkit-transition: 0.19s ease-in;
+                outline: 0;
+                overflow: hidden;
+                background: none;
+                z-index: 1;
+                cursor: pointer;
+                &:hover>svg path {
+                    fill: #fff;
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: $black;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 100%;
+                    z-index: -1;
+                    -webkit-transition: bottom 0.2s ease-in;
+                }
+                &:hover:before {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    .copy-info {
+        text-align: center;
+        @include breakpoint(large) {
+            @include breakpoint(portrait) {
+                padding-left: 15%;
+            }
+        }
+        @include breakpoint(large only) {
+            @include breakpoint(landscape) {
+                padding-left: 15%;
+            }
+        }
+    }
+}
+
+// Back to top styling
+.cd-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.8) url('../assets/icon-top-arrow.svg') no-repeat center 50%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    visibility: visible;
+    opacity: 1;
+}
+
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    opacity: .5;
+}
+
+.no-touch .cd-top:hover {
+    background-color: $black;
+    opacity: 1;
+}
+
+@media only screen and (min-width: 768px) {
+    .cd-top {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .cd-top {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+// Preloader styling
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #E5E5E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @keyframes loader {
+        0%,
+        10%,
+        100% {
+            width: 80px;
+            height: 80px;
+        }
+        65% {
+            width: 150px;
+            height: 150px;
+        }
+    }
+    @keyframes loaderBlock {
+        0%,
+        30% {
+            transform: rotate(0);
+        }
+        55% {
+            background-color: #FFF;
+        }
+        100% {
+            transform: rotate(90deg);
+        }
+    }
+    @keyframes loaderBlockInverse {
+        0%,
+        20% {
+            transform: rotate(0);
+        }
+        55% {
+            background-color: #FFF;
+        }
+        100% {
+            transform: rotate(-90deg);
+        }
+    }
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+        animation: loader 1.2s infinite ease-in-out;
+        span {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #EE4040;
+            animation: loaderBlock 1.2s infinite ease-in-out both;
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+                background-color: #fff;
+            }
+            &:nth-child(2) {
+                top: 0;
+                right: 0;
+                animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+                background-color: #3c3c3c;
+            }
+            &:nth-child(3) {
+                bottom: 0;
+                left: 0;
+                animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+                background-color: #F9D012;
+            }
+            &:nth-child(4) {
+                bottom: 0;
+                right: 0;
+                background-color: #fff;
+            }
+        }
+    }
+}

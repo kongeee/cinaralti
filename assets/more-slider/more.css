@@ -1,0 +1,219 @@
+/**
+ * MoreSlider - An open source jquery slider made for representation slides 
+ * both vertical and horizontal
+ * @author      Baianat
+ * @copyright   2015 Baianat
+ * @link        http://www.baianat.com
+ * @license     MIT permissive license http://www.baianat.com
+ * @version     1.0.0
+ * @package     MoreSlider
+ * 
+ */
+
+
+/* Main container horizontal */
+
+.horizontalSlide 
+{
+    position: absolute ;
+    top: 0; 
+    left:0; 
+    width: 50% ;
+    height: 50%;
+    z-index: 1; 
+    opacity: 0; 
+    right : 0 ;
+}
+
+
+/* Main container horizontal active slides */
+
+.horizontalSlide.active, .horizontalSlide.right, .horizontalSlide.left
+{
+    opacity: 1 ; 
+    z-index: 2 ;
+} 
+
+/* Main container horizontal left slide */
+
+.horizontalSlide.left
+{
+    transform: translateX(-100%) ;
+} 
+
+
+/* Main container horizontal next slide */
+
+.horizontalSlide.right
+{
+    transform: translateX(100%) ;
+} 
+
+
+/* Main container horizontal left slide */
+.transition .horizontalSlide.left
+{
+    transform: translateX(0%)
+}
+
+/* Main container horizontal left slide */
+.transition .horizontalSlide.right
+{
+    transform: translateX(0%)
+}
+
+/* Main container horizontal shift right slide */
+
+.transition .horizontalSlide.shift-right
+{
+    transform: translateX(-100%);
+}
+
+
+/* Main container horizontal shift left slide */
+
+.transition .horizontalSlide.shift-left
+{transform: translateX(100%);
+}
+
+/* Main container horizontal slide transition */
+.transition .horizontalSlide
+{
+    transition-property: right, left, margin, transform;
+}
+
+/* Main slider loader */
+
+.more_loader {
+    position: absolute ; 
+    top: 0; 
+    left: 0; 
+    width: 100% ;
+    height: 5px ;
+    background: rgba(0,0,0,.4);
+    z-index: 9999 ; 
+}
+
+/* Main slider loader progress */
+
+.more_loader  .more_progress{
+    width: 0% ;
+    height: 100% ;
+    z-index: 9999 ; 
+    transition: 0.4s all ease-in ;
+    background: #005599 ;
+}
+
+.more{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+
+/* Main More class for a body element */
+
+.moreMain
+{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+/* Ensure that every element inside the container is given a full width and height  */
+
+.more>*
+{
+    width:100%;
+    height:100%;
+    overflow:hidden
+}
+
+/* More pagination container default state right position */
+
+.more_pagination
+{
+    margin:0px;
+    padding:8px 4px;
+    position:fixed;
+    height:auto;
+    right:60px;
+    top:50%;
+    z-index:999;
+    width:32px
+}
+
+/* More pagination container overrides the default state to a bottom position */
+
+.more_pagination_bottom
+{
+    margin:0px;
+    padding:8px 4px;
+    position:fixed;
+    left:50%;
+    bottom: 5% ;
+    width: auto ;
+    top: inherit ;
+    right: inherit ;
+}
+
+/* More pagination dot float */
+
+.more_pagination_bottom .more_dot
+{
+    float: right ; 
+    margin-right: 5px ;
+}
+
+/* More single dot pagination item */
+
+.more_pagination .more_dot
+{
+    border-radius:100%;
+    width:8px;
+    height:8px;
+    line-height:22px;
+    background:#f6f6f6;
+    display:block;
+    transition:300ms all;
+    margin-top:10px;
+}
+
+/* More single dot span class */
+
+.more_pagination .more_dot>span
+{
+    display:none;
+    list-style:outside none none;
+    width:200px;
+    height:25px;
+    line-height:20px;
+    text-align:center;
+    margin:0px 0px 2px;
+    cursor:pointer;
+    color:#fff;
+    position:absolute;
+    padding-left:70px
+}
+
+/* Each slide select reset */
+
+.slide
+{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}
+
+/* Default active state for a dot item in pagination */
+
+.more_pagination .more_dot.active
+{
+    background:rgba(0,0,0,0.4)
+}
