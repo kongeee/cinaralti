@@ -10,12 +10,16 @@ if(!$_POST){
 <html lang="tr">
     <head>
         <title>Yazı Ekle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
 
-        <center>
+        <div class="container">
             <form action="" method="POST">
-                <table border=1>
+                <table border=1 class="table">
                     <tr>
                         <td><span>Başlık</span></td>
                         <td><input type="text" name="title"></td>
@@ -43,13 +47,13 @@ if(!$_POST){
                         </select></td>
                     </tr>
                     <tr>
-                        <td colspan=2><input type="submit" value="Ekle"></td>
+                        <td colspan=2><input class="btn-success" type="submit" value="Ekle"></td>
                     </tr>
                     
                 
                 </table>
             </form>
-        </center>
+        </div>
 
     </body>
 </html>
@@ -60,6 +64,9 @@ if(!$_POST){
     $icon_id = $_POST['icon_id'];
     $title = $_POST['title'];
     $content = $_POST['content'];
+
+    $title = str_replace("'","\'",$title);
+    $content = str_replace("'","\'",$content);
 
     if($icon_id){
     $sql = "INSERT INTO texts (type_id, icon_id, title, content) VALUES ('$text_type', '$icon_id', '$title', '$content')";

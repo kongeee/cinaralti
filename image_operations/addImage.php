@@ -12,13 +12,18 @@ if(!$_POST){
 <html lang="tr">
     <head>
         <title>Resim Yükle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-
-        <form action="" method="POST" enctype="multipart/form-data">
-        
+    <div class="container">
+        <h2 style="color:red;">İkon eklerken .svg formatında eklenmelidir!!!</h2>
+        <form class="form-inline" action="" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
             <input name="files[]" type="file" multiple="multiple">
-            <select name="image_type" id="image_type" required>
+            <select class="form-control" name="image_type" id="image_type" required>
                 <option value="" selected>Seçiniz</option>
                 <?php
                 $sql = "SELECT * FROM image_types";
@@ -29,10 +34,11 @@ if(!$_POST){
                 <option value="<?php echo $row['type_id'] ?>"><?php echo $row['type_name'] ?></option>
                 <?php } ?> 
             </select>
-            <input type="submit" value="Ekle">
+        </div>
+            <input class="btn btn-success" type="submit" value="Ekle">
     
         </form>
-
+    </div>                
     </body>
 </html>
 

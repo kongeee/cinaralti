@@ -106,6 +106,9 @@ if(!isset($_POST['text_id']) && !isset($_POST['content'])){
     $icon_id = $_POST['icon_id'];
     $text_id = $_POST['text_id'];
 
+    $title = str_replace("'","\'",$title);
+    $content = str_replace("'","\'",$content);
+
     if($icon_id){
     $sql = "UPDATE texts SET title='$title', content='$content', type_id='$type_id', icon_id='$icon_id' WHERE text_id='$text_id'";
     $result = $DBconn->query($sql);

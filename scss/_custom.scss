@@ -124,9 +124,9 @@ textarea:-moz-placeholder {
             }
         }
         .slide1 {
-            background: url(../assets/img/hero01.png) no-repeat;
+            background-image: url("../assets/img/hero01.png");
             background-size: cover;
-            background-position: 20% 0%;
+            background-position: 0% 0%;
         }
         .slide2 {
             background: url(../assets/img/hero02.png) no-repeat;
@@ -853,7 +853,8 @@ footer {
                 }
             }
             .fb-i,
-            .insta-i {
+            .insta-i
+            .tw-i {
                 position: relative;
                 width: rem-calc(50);
                 height: rem-calc(50);

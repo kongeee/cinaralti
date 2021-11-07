@@ -10,9 +10,14 @@ if(!$_GET){
 <html lang="tr">
     <head>
         <title>Mesajlar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <table border="1">
+        <div class="container">
+        <table class="table">
             <tr>
                 <th>İsim</th>
                 <th>E-posta</th>
@@ -32,7 +37,7 @@ if(!$_GET){
                 <td><?php echo $row['message'] ?></td>
                 <td><?php echo $row['message_status'] ?></td>
                 <?php if($row['message_status'] == "okunmadi"){ ?>
-                <td><a href="./showMessage.php?message_id=<?php echo $row['message_id'] ?>">Okundu olarak işaretle</a></td>
+                <td><a class="btn btn-success" href="./showMessage.php?message_id=<?php echo $row['message_id'] ?>">Okundu olarak işaretle</a></td>
                 <?php
                 }else{
                     echo "<td></td>";
@@ -41,7 +46,7 @@ if(!$_GET){
             </tr>
             <?php } ?>
         </table>
-        
+    </div>
     </body>
 </html>
 <?php
