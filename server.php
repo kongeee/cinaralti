@@ -135,11 +135,12 @@ $sql = "CREATE TABLE IF NOT EXISTS messages(
     message_status VARCHAR(32) NOT NULL,
     name VARCHAR(64) NOT NULL,
     e_mail VARCHAR(64) NOT NULL,
+    ip VARCHAR(64) NOT NULL,
     message TEXT NOT NULL,
     PRIMARY KEY(message_id)
 )";
 if(!$DBconn->query($sql) === TRUE){
-echo "(menus)table is not created";
+echo "(messages)table is not created";
 }
 
 ?>

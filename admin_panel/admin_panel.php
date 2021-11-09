@@ -46,28 +46,5 @@ include_once("../server.php");
             </table>
         </div>
 
-        
-        
-        
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-
-        <?php
-        $sql = "SELECT COUNT(*) FROM messages WHERE message_status='okunmadi'";
-        $result = $DBconn->query($sql);
-        $row = mysqli_fetch_assoc($result);
-        ?>
-        <a href="../contact_operations/showMessage.php"></a>
-        <br>
-        <a href="exit.php">Güvenli Çıkış</a>
-
     </body>
 </html>

@@ -410,6 +410,49 @@ table {
   text-decoration: none;
   cursor: pointer;
 }
+
+/*------------------------------------*/
+.model_3 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.model-content_3 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 6px solid rgba(143, 145, 26, 0.596);
+  border-radius: 5%;
+  width: 70%;
+  
+}
+
+/* The Close Button */
+.closee_3 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closee_3:hover,
+.closee_3:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*------------------------------------*/
 .fa-facebook {
   background: #3B5998;
   color: white;

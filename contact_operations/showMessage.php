@@ -37,7 +37,7 @@ if(!$_GET){
                 <td><?php echo $row['message'] ?></td>
                 <td><?php echo $row['message_status'] ?></td>
                 <?php if($row['message_status'] == "okunmadi"){ ?>
-                <td><a class="btn btn-success" href="./showMessage.php?message_id=<?php echo $row['message_id'] ?>">Okundu olarak işaretle</a></td>
+                <td><a class="btn btn-success" href="./showMessage.php?message_id=<?php echo $row['message_id'] ?>">Okundu olarak işaretle ve sil</a></td>
                 <?php
                 }else{
                     echo "<td></td>";
@@ -52,7 +52,7 @@ if(!$_GET){
 <?php
 }else{
     $message_id = $_GET['message_id'];
-    $sql = "UPDATE messages SET message_status='okundu' WHERE message_id='$message_id'";
+    $sql = "DELETE FROM messages WHERE message_id='$message_id'";
     $DBconn->query($sql);
     header("Location:./showMessage.php");
 }

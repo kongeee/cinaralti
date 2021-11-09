@@ -1539,7 +1539,27 @@ include_once("./server.php");
                     <form action="contact_operations/addMessage.php" method="POST">
                         <input  type="text" name="name" placeholder="İsim">
                         <input  type="email" name="email" placeholder="Email">
-                        <b><textarea style="color: rgb(255, 255, 255);" placeholder="Mesajınız"></textarea></b>
+                        <textarea name="message" placeholder="Mesajınız"></textarea>
+
+
+                        
+
+                        <!-- The Modal -->
+                        <div id="myModel_3" class="model_3">
+                        
+                          <!-- Modal content -->
+                          <div class="model-content_3">
+                            <span class="closee_3">&times;</span>
+                            <p>KVKK metni</p>
+                          </div>
+                        
+                        </div>
+                        
+                        
+                        <input style="display:flex; margin-left:-100px; margin-bottom:auto;" required type="checkbox" id="confirmation" name="confirmation" value="Onay">
+                        <div style="margin-left:-100px"><button style="cursor: pointer;margin-left:200px;" id="myBtn_3"><b>KVKK metnini</b></button> <span>okudum kabul ediyorum</span></div>
+                        
+                        
                         <button type="submit" class="send-form">Gönder</button>
                     </form>
                 </div>
@@ -1815,6 +1835,33 @@ include_once("./server.php");
             window.onclick = function(event) {
               if (event.target == model_2) {
                 model_2.style.display = "none";
+              }
+            }
+            </script>
+            <script>
+            // Get the modal
+            var model_3 = document.getElementById("myModel_3");
+            
+            // Get the button that opens the modal
+            var btn_3 = document.getElementById("myBtn_3");
+            
+            // Get the <span> element that closes the modal
+            var span_3 = document.getElementsByClassName("closee_3")[0];
+            
+            // When the user clicks the button, open the modal 
+            btn_3.onclick = function() {
+              model_3.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span_3.onclick = function() {
+              model_3.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == model_3) {
+                model_3.style.display = "none";
               }
             }
             </script>
